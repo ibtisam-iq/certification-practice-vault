@@ -1,0 +1,9 @@
+nav:
+  - CRDs: crd.md
+  - etcd: etcd.md
+  - etcd Backup: etcd-backup.md
+  - etcd Restore: etcd-restore.md
+  - Installation: installation.md
+  - kube-proxy: kube-proxy.md
+  - kubeadm Upgrade: kubeadm-upgrade.md
+  - kubeconfig: kubeconfig.md

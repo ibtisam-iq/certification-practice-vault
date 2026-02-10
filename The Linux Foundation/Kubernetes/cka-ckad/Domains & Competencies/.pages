@@ -1,0 +1,8 @@
+nav:
+  - Workloads & Scheduling: Workloads & Scheduling
+  - Storage: Storage
+  - Configuration and Security: Configuration and Security
+  - Services & Networking: Services & Networking
+  - Observability & Maintenance: Observability & Maintenance
+  - Troubleshooting: Troubleshooting
+  - Cluster Architecture, Installation & Configuration: Cluster Architecture, Installation & Configuration

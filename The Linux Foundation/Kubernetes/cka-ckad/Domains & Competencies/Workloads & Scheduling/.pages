@@ -1,0 +1,14 @@
+nav:
+  - Resource Quotas & Limit Ranges: quota-limitrange.md
+  - Jobs & CronJobs: job-and-cronjob.md
+  - Affinity: affinity.md
+  - Taints & Tolerations: taint-and-toleration.md
+  - Deployments: deploy.md
+  - ReplicaSets: rs.md
+  - DaemonSets: ds.md
+  - Labels & Selectors: labels-selectors.md
+  - HPA: hpa.md
+  - VPA: vpa.md
+  - Priority Class: pc.md
+  - Command Args: command-args.md
+  - Multi-Container Pods: multi-cont.md

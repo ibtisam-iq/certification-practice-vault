@@ -22,7 +22,7 @@ Your task involves setting up storage components in a Kubernetes cluster. Follow
 - Storage class: blue-stc-cka
 - Storage request: 50Mi
 
-The volume should be bound to `blue-pv-cka`. 
+The volume should be bound to `blue-pv-cka`.
 
 ```bash
 controlplane:~$ k get pv,pvc,sc
@@ -37,7 +37,7 @@ storageclass.storage.k8s.io/blue-stc-cka           kubernetes.io/no-provisioner 
 storageclass.storage.k8s.io/local-path (default)   rancher.io/local-path          Delete          WaitForFirstConsumer   false                  8d
 
 Events:
-  Type    Reason                Age                   From                         Message    # you haven't yet created pod 
+  Type    Reason                Age                   From                         Message    # you haven't yet created pod
   ----    ------                ----                  ----                         -------
   Normal  WaitForFirstConsumer  88s (x12 over 4m12s)  persistentvolume-controller  waiting for first consumer to be created before binding
 
@@ -55,12 +55,12 @@ Events:
 controlplane:~$ sudo mkdir -p /opt/blue-data-cka
 controlplane:~$ sudo chmod 777 /opt/blue-data-cka
 
-controlplane:~$ k delete pvc blue-pvc-cka 
+controlplane:~$ k delete pvc blue-pvc-cka
 persistentvolumeclaim "blue-pvc-cka" deleted          # can't delete, pod is using this pvc
-^Ccontrolplane:~$ k delete po test-pod-cka 
+^Ccontrolplane:~$ k delete po test-pod-cka
 pod "test-pod-cka" deleted
 
-controlplane:~$ k apply -f abc.yaml 
+controlplane:~$ k apply -f abc.yaml
 storageclass.storage.k8s.io/blue-stc-cka created
 persistentvolume/blue-pv-cka created
 persistentvolumeclaim/blue-pvc-cka created
@@ -72,7 +72,7 @@ test-pod-cka   0/1     ContainerCreating   0          5s
 controlplane:~$ k get po
 NAME           READY   STATUS    RESTARTS   AGE
 test-pod-cka   1/1     Running   0          8s
-controlplane:~$ cat abc.yaml 
+controlplane:~$ cat abc.yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -141,8 +141,8 @@ spec:
   - name: test-volume
     persistentVolumeClaim:
       claimName: blue-pvc-cka
-controlplane:~$ vi abc.yaml 
-controlplane:~$ 
+controlplane:~$ vi abc.yaml
+controlplane:~$
 ```
 
 ---
@@ -278,7 +278,7 @@ Thanks for the details ❤️ this explains why your PVC is **Pending** instead 
 * Because of this, the PVC is stuck in **Pending**.
 
 ```bash
-root@student-node ~ ➜  k describe pvc papaya-pvc-ckad09-str 
+root@student-node ~ ➜  k describe pvc papaya-pvc-ckad09-str
 Name:          papaya-pvc-ckad09-str
 Namespace:     default
 StorageClass:  papaya-stc-ckad09-str
@@ -288,7 +288,7 @@ Labels:        <none>
 Annotations:   <none>
 Finalizers:    [kubernetes.io/pvc-protection]
 Capacity:      0
-Access Modes:  
+Access Modes:
 VolumeMode:    Filesystem
 Used By:       <none>
 Events:        <none>
@@ -305,7 +305,7 @@ persistentvolume "papaya-pv-ckad09-str" deleted
 persistentvolumeclaim/papaya-pvc-ckad09-str replaced
 persistentvolume/papaya-pv-ckad09-str replaced
 
-root@student-node ~ ➜  k describe pvc papaya-pvc-ckad09-str 
+root@student-node ~ ➜  k describe pvc papaya-pvc-ckad09-str
 Name:          papaya-pvc-ckad09-str
 Namespace:     default
 StorageClass:  papaya-stc-ckad09-str
@@ -327,7 +327,7 @@ persistentvolume/papaya-pv-ckad09-str   150Mi      RWO            Retain        
 NAME                                          STATUS   VOLUME                 CAPACITY   ACCESS MODES   STORAGECLASS            VOLUMEATTRIBUTESCLASS   AGE
 persistentvolumeclaim/papaya-pvc-ckad09-str   Bound    papaya-pv-ckad09-str   150Mi      RWO            papaya-stc-ckad09-str   <unset>                 44s
 
-root@student-node ~ ➜  cat 2.yaml 
+root@student-node ~ ➜  cat 2.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -372,7 +372,7 @@ spec:
   storageClassName: papaya-stc-ckad09-str
   volumeMode: Filesystem
 
-root@student-node ~ ➜    
+root@student-node ~ ➜
 ```
 
 ---
@@ -402,7 +402,7 @@ Also, create a persistent volume claim with the name `coconut-pvc-cka01-str` as 
 ```bash
 cluster1-controlplane ~ ➜  vi 10.yaml
 
-cluster1-controlplane ~ ➜  k apply -f 10.yaml 
+cluster1-controlplane ~ ➜  k apply -f 10.yaml
 persistentvolume/coconut-pv-cka01-str created
 persistentvolumeclaim/coconut-pvc-cka01-str created
 
@@ -410,7 +410,7 @@ cluster1-controlplane ~ ➜  k get pvc
 NAME                    STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS            VOLUMEATTRIBUTESCLASS   AGE
 coconut-pvc-cka01-str   Pending                                      coconut-stc-cka01-str   <unset>                 9s
 
-cluster1-controlplane ~ ➜  k describe sc coconut-stc-cka01-str 
+cluster1-controlplane ~ ➜  k describe sc coconut-stc-cka01-str
 Name:            coconut-stc-cka01-str
 IsDefaultClass:  No
 Provisioner:           kubernetes.io/no-provisioner
@@ -425,7 +425,7 @@ cluster1-controlplane ~ ➜  k get pvc
 NAME                    STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS            VOLUMEATTRIBUTESCLASS   AGE
 coconut-pvc-cka01-str   Pending                                      coconut-stc-cka01-str   <unset>                 49s
 
-cluster1-controlplane ~ ➜  cat 10.yaml 
+cluster1-controlplane ~ ➜  cat 10.yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -468,9 +468,10 @@ In short: with `hostPath`, the `nodeAffinity` is a precaution; with `local`, it�
 
 ---
 
-## Q5 
+## Q5
 
 Create a Pod named `pod1` of image `nginx:alpine`
+
 - Make key `tree` of ConfigMap `trauerweide` available as environment variable `TREE1`
 - Mount all keys of ConfigMap `birke` as volume. The *files* should be available under `/etc/birke/*`
 - Test env+volume access in the running Pod
@@ -497,12 +498,12 @@ birke              3      19m
 kube-root-ca.crt   1      4d9h
 trauerweide        1      20m
 controlplane:~$ kubectl exec pod1 -- cat /etc/birke/tree
-birkecontrolplane:~$ 
+birkecontrolplane:~$
 controlplane:~$ kubectl exec pod1 -- cat /etc/birke/level
-3controlplane:~$ 
+3controlplane:~$
 controlplane:~$ kubectl exec pod1 -- cat /etc/birke/department
 parkcontrolplane:~$
-parkcontrolplane:~$ k describe cm birke 
+parkcontrolplane:~$ k describe cm birke
 Name:         birke
 Namespace:    default
 Labels:       <none>
