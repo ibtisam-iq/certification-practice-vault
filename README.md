@@ -1,5 +1,11 @@
 # Certification Practice Vault
 
+![Docs](https://github.com/ibtisam-iq/certification-practice-vault/actions/workflows/docs.yml/badge.svg)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Hands--on-326CE5?logo=kubernetes&logoColor=white)
+![CKA](https://img.shields.io/badge/CKA-Exam%20Practice-0052CC)
+![CKAD](https://img.shields.io/badge/CKAD-Exam%20Practice-0052CC)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 A focused, execution-first vault of real exam-style practice questions and scenarios for DevOps and Cloud certifications — starting with Kubernetes (CKA / CKAD) and expanding over time.
 
 ---
