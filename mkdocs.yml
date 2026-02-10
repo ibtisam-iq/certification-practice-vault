@@ -14,7 +14,7 @@ copyright: >
 
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: docs/overrides
   language: en
   logo: docs/images/favicon.svg
   favicon: docs/images/favicon.ico
