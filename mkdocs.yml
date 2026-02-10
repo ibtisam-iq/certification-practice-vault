@@ -1,0 +1,114 @@
+site_name: Certification Practice Vault | Real Exam-Style DevOps Practice
+site_url: https://cert-prep.ibtisam-iq.com
+site_description: An execution-first practice vault documenting real-world, hands-on preparation for DevOps and Cloud certifications, starting with Kubernetes (CKA/CKAD).
+
+repo_name: GitHub
+repo_url: https://github.com/ibtisam-iq/certification-practice-vault
+
+docs_dir: .
+site_dir: site/
+
+copyright: >
+  Copyright &copy; 2026 Certification Practice Vault by
+  <a href="https://www.linkedin.com/in/ibtisam-iq/">Muhammad Ibtisam</a>.
+
+theme:
+  name: material
+  language: en
+  logo: docs/images/favicon.svg
+  favicon: docs/images/favicon.ico
+  font:
+    text: Inter
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.prune
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - toc.integrate
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - toc:
+      toc_depth: 0
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+
+plugins:
+  - search
+
+  # Filesystem & structure
+  - same-dir
+
+  # Navigation generation
+  - awesome-pages:
+      strict: false
+
+  # Section README/index handling
+  - section-index
+
+  # Cross references
+  - autorefs
+
+  # Metadata
+  - git-revision-date-localized:
+      type: custom
+      custom_format: "%B %d, %Y %I:%M:%S %p"
+      enable_creation_date: false
+      fallback_to_build_date: false
+      timezone: Asia/Karachi
+      locale: en
+      exclude:
+      - index.md
+
+  # Output optimization
+  - minify:
+      minify_html: true
+
+validation:
+  omitted_files: warn
+  unrecognized_links: warn
+  anchors: warn
+  links:
+    not_found: warn
+    anchors: warn
+
+strict: true
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/ibtisam-iq/
+    - icon: fontawesome/brands/twitter
+      link: https://x.com/ibtisam_iq
+    - icon: fontawesome/brands/github
+      link: https://github.com/ibtisam-iq
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/mibtisam
+    - icon: fontawesome/solid/globe
+      link: https://ibtisam-iq.com
+
+extra_css:
+  - docs/stylesheets/extra.css

@@ -1,0 +1,7 @@
+nav:
+  - Services: services.md
+  - CoreDNS: coreDNS.md
+  - DNS Lookup: dns-lookup.md
+  - Ingress: ingress.md
+  - Gateway API: gateway-api.md
+  - Network Policies: net-pol.md

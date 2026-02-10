@@ -1,0 +1,6 @@
+nav:
+  - kube-apiserver: kube-apiserver.md
+  - kube-controller-manager: controller-manager.md
+  - kube-proxy: kube-proxy.md
+  - kubelet: kubelet.md
+  - Case Study: detailed-case-study-1.md

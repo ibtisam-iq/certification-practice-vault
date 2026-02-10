@@ -1,0 +1,5 @@
+nav:
+  - API Deprecations: api-deprecations.md
+  - kubectl logs: k-logs.md
+  - kubectl top: k-top.md
+

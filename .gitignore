@@ -1,0 +1,13 @@
+# MkDocs
+site/
+.cache/
+
+# Python
+*.pyc
+__pycache__/
+.venv/
+venv/
+*.egg-info/
+
+# macOS
+.DS_Store
