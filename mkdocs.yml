@@ -14,6 +14,7 @@ copyright: >
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   logo: docs/images/favicon.svg
   favicon: docs/images/favicon.ico
@@ -99,6 +100,8 @@ strict: true
 extra:
   generator: false
   social:
+    - icon: custom/credly
+      link: https://www.credly.com/users/ibtisam-iq/badges#credly
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/ibtisam-iq/
     - icon: fontawesome/brands/twitter
