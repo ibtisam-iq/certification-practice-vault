@@ -98,6 +98,9 @@ validation:
 strict: true
 
 extra:
+  analytics:
+    provider: google
+    property: G-4QXFG3V0JP
   generator: false
   social:
     - icon: custom/credly
