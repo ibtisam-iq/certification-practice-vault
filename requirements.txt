@@ -8,3 +8,4 @@ mkdocs-same-dir
 mkdocs-autorefs==1.4.3
 mkdocs-git-revision-date-localized-plugin==1.4.7
 mkdocs-minify-plugin
+pygments==2.18.0                     # pinned: 2.19.x breaks line_spans in pymdownx.highlight
