@@ -1,0 +1,98 @@
+{
+  // .devcontainer/devcontainer.json
+  // This file configures the GitHub Codespaces environment.
+  // It is a STATIC file — does NOT trigger any workflow on git push.
+  // It only activates when someone clicks:
+  // GitHub repo → Green "Code" button → Codespaces → "Create codespace on main"
+
+  // ─────────────────────────────────────────────
+  // CONTAINER IDENTITY
+  // ─────────────────────────────────────────────
+  // A human-readable name shown in the Codespaces dashboard.
+  "name": "Certification Practice Vault",
+
+  // ─────────────────────────────────────────────
+  // BASE IMAGE
+  // ─────────────────────────────────────────────
+  // Use Microsoft's official Python 3.12 dev container image.
+  // It comes with git, pip, curl, zsh, and common tools pre-installed.
+  // Your project uses MkDocs (a Python tool), so Python image is required.
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+
+  // ─────────────────────────────────────────────
+  // POST CREATE COMMAND
+  // ─────────────────────────────────────────────
+  // This runs ONCE after the container is created for the first time.
+  // Installs all Python packages from requirements.txt.
+  // Same as `init` in .gitpod.yml — runs once, cached for speed.
+  "postCreateCommand": "pip install -r requirements.txt",
+
+  // ─────────────────────────────────────────────
+  // POST START COMMAND
+  // ─────────────────────────────────────────────
+  // This runs EVERY TIME the codespace starts (or resumes).
+  // Starts the MkDocs live-reload server automatically.
+  // 0.0.0.0:8000 is required so Codespaces can forward the port
+  // from inside the container to your browser preview.
+  // Same as `command` in .gitpod.yml.
+  "postStartCommand": "mkdocs serve --dev-addr=0.0.0.0:8000",
+
+  // ─────────────────────────────────────────────
+  // PORTS — Expose and auto-forward to browser
+  // ─────────────────────────────────────────────
+  // Codespaces watches these ports. When port 8000 becomes active,
+  // it automatically forwards it and shows a popup: "Open in Browser".
+  "forwardPorts": [8000],
+
+  // ─────────────────────────────────────────────
+  // PORT ATTRIBUTES — Behavior per port
+  // ─────────────────────────────────────────────
+  "portsAttributes": {
+    "8000": {
+      // Label shown in the Ports panel inside VS Code
+      "label": "MkDocs Live Preview",
+      // Automatically opens the preview in browser when port is ready.
+      // Options: openPreview | openBrowser | silent | notify
+      "onAutoForward": "openPreview",
+      // `public` means the preview URL can be shared with anyone.
+      // Use `private` if you want only yourself to access it.
+      "visibility": "public"
+    }
+  },
+
+  // ─────────────────────────────────────────────
+  // VS CODE EXTENSIONS — Auto-installed in workspace
+  // ─────────────────────────────────────────────
+  // These extensions are automatically installed when the codespace opens.
+  // The contributor does NOT need to install anything manually.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Markdown editing: shortcuts, live preview, auto table of contents
+        "yzhang.markdown-all-in-one",
+
+        // Markdown linting: highlights formatting errors in .md files
+        "davidanson.vscode-markdownlint",
+
+        // Spell checker: catches typos across all files including docs
+        "streetsidesoftware.code-spell-checker",
+
+        // GitHub Pull Requests: review and manage PRs directly inside editor
+        "github.vscode-pull-request-github",
+
+        // YAML support: syntax highlighting + validation for mkdocs.yml
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        // Set editor default formatter for markdown files
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        // Show rulers at 80 and 120 chars — good for markdown writing
+        "editor.rulers": [80, 120],
+        // Word wrap on for markdown files — comfortable writing experience
+        "[markdown]": {
+          "editor.wordWrap": "on"
+        }
+      }
+    }
+  }
+}
