@@ -8,6 +8,8 @@
 
 A focused, execution-first vault of real exam-style practice questions and scenarios for DevOps and Cloud certifications — starting with Kubernetes (CKA / CKAD) and expanding over time.
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ibtisam-iq/certification-practice-vault)
+
 ---
 
 ## What This Project Is
