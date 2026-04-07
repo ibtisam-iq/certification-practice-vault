@@ -1,70 +1,22 @@
 # .gitpod.yml
-# This file configures the Gitpod cloud development environment.
-# It is a STATIC file — it does NOT trigger any workflow on git push.
-# It only activates when someone opens this repo via:
 # https://gitpod.io/#https://github.com/ibtisam-iq/certification-practice-vault
 
-# ─────────────────────────────────────────────
-# BASE IMAGE
-# ─────────────────────────────────────────────
-# Use the official Gitpod Python 3.12 workspace image.
-# This image already has git, pip, curl, and common tools pre-installed.
-# Your project uses MkDocs (a Python tool), so Python image is required.
 image: gitpod/workspace-python-3.12
 
-# ─────────────────────────────────────────────
-# TASKS — What to do when workspace starts
-# ─────────────────────────────────────────────
-# Each task opens as a separate terminal tab in VS Code.
-# There are 3 lifecycle steps per task:
-#   before  → runs before everything, every time
-#   init    → runs ONLY during Prebuild (cached for speed)
-#   command → runs every time the workspace opens
 tasks:
   - name: MkDocs Dev Server
-    # `init` runs once during Gitpod Prebuild.
-    # All packages from requirements.txt get installed and cached.
-    # Next time someone opens the workspace, this step is already done — instant startup.
     init: pip install -r requirements.txt
-
-    # `command` runs every time the workspace is opened.
-    # Starts the MkDocs live-reload server.
-    # --dev-addr=0.0.0.0:8000 is required so Gitpod can forward the port
-    # from inside the container to the outside preview panel.
     command: mkdocs serve --dev-addr=0.0.0.0:8000
 
-# ─────────────────────────────────────────────
-# PORTS — Expose and handle open ports
-# ─────────────────────────────────────────────
-# Gitpod watches these ports. When a port becomes active,
-# it takes the action defined in `onOpen`.
 ports:
   - port: 8000
-    # Automatically opens the MkDocs live site in Gitpod's side preview panel.
-    # Options: open-preview | open-browser | notify | ignore
     onOpen: open-preview
-    # `public` means the preview URL can be shared with anyone (no login needed).
-    # Use `private` if you want only you to access it.
     visibility: public
 
-# ─────────────────────────────────────────────
-# VS CODE EXTENSIONS — Auto-installed in workspace
-# ─────────────────────────────────────────────
-# These extensions are automatically installed every time a Gitpod workspace opens.
-# The contributor does NOT need to install anything manually.
 vscode:
   extensions:
-    # Markdown editing: shortcuts, live preview, auto table of contents
     - yzhang.markdown-all-in-one
-
-    # Markdown linting: highlights formatting errors in .md files
     - davidanson.vscode-markdownlint
-
-    # Spell checker: catches typos across all files including docs
     - streetsidesoftware.code-spell-checker
-
-    # GitHub Pull Requests: review and manage PRs directly inside the editor
     - github.vscode-pull-request-github
-
-    # YAML support: syntax highlighting + validation for mkdocs.yml and this file
     - redhat.vscode-yaml
