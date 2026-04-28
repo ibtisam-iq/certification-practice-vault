@@ -1,6 +1,7 @@
 # Certification Practice Vault
 
 ![Docs](https://github.com/ibtisam-iq/certification-practice-vault/actions/workflows/docs.yml/badge.svg)
+[![Site](https://img.shields.io/badge/Live-cert--vault.ibtisam--iq.com-01696f)](https://cert-vault.ibtisam-iq.com)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-Hands--on-326CE5?logo=kubernetes&logoColor=white)
 ![CKA](https://img.shields.io/badge/CKA-Exam%20Practice-0052CC)
 ![CKAD](https://img.shields.io/badge/CKAD-Exam%20Practice-0052CC)
