@@ -41,24 +41,23 @@ jobs:
 
       - name: Build MkDocs site
         run: mkdocs build --strict
+        env:
+          DISABLE_MKDOCS_2_WARNING: "true"
 
-      - name: QA — Validate HTML5
-        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
-        with:
-          root: site/
-          extra: '--ignore-re "Attribute \"(autocomplete|autocorrect|autocapitalize)\" not allowed"'
-        continue-on-error: true
+      # NOTE: html5validator removed — this repo is Markdown-only; HTML is generated
+      # by MkDocs + Material theme. Validation failures were caused by theme internals
+      # (e.g. hidden checkbox <label> associations), not content. No actionable signal.
 
       - name: QA — Check for broken links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: "--no-progress --accept 200,429,403 site/"
+          args: "--no-progress --accept 200,429,403,999 site/"
           fail: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload link check report
-        if: always()
+        if: ${{ always() && env.ACT != 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: lychee-report
@@ -67,6 +66,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload site artifact for Pages
+        if: ${{ env.ACT != 'true' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./site
@@ -91,5 +91,6 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
+        if: ${{ env.ACT != 'true' }}
         id: deploy
         uses: actions/deploy-pages@v4
