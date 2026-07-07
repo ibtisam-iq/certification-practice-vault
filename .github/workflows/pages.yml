@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -58,7 +58,7 @@ jobs:
 
       - name: Upload link check report
         if: ${{ always() && env.ACT != 'true' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lychee-report
           path: lychee/
@@ -67,7 +67,7 @@ jobs:
 
       - name: Upload site artifact for Pages
         if: ${{ env.ACT != 'true' }}
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./site
 
@@ -93,4 +93,4 @@ jobs:
       - name: Deploy to GitHub Pages
         if: ${{ env.ACT != 'true' }}
         id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
